@@ -1,0 +1,45 @@
+<div class="content" 
+       fxLayout="row" 
+       fxLayout.xs="column" 
+       fxFlexFill >
+       
+  <div fxFlex="65" fxFlex.xs="55">
+      <div class="bg-auth"></div>
+  </div>
+
+  <div fxFlex="35" class="auth" fxFlex.xs="15">
+    <h2>Sign In</h2>
+    <form [formGroup]="user">
+
+      <div class="auth-container">
+        <mat-form-field>
+          <input matInput placeholder="Email" type="email" [formControl]="user.controls['email']" />
+        </mat-form-field>
+        <small *ngIf="userForm && user.controls['email'].hasError('required')" class="text-danger support-text">You must enter an email address.</small>
+        <small *ngIf="user.controls['email'].errors?.email && user.controls['email'].touched" class="text-danger support-text">You must enter a valid email address.</small>
+      
+        <mat-form-field>
+          <input matInput placeholder="Password" type="password" [formControl]="user.controls['password']" />
+        </mat-form-field>
+        <small *ngIf="userForm && user.controls['password'].hasError('required')" class="text-danger support-text">You must enter a password.</small>
+      </div>
+
+      <div class="auth-link-right">
+        <a [routerLink]="['/forgotpassword']">Forgot Password?</a>
+      </div>
+
+      <button mat-raised-button *ngIf="!loading"  (click)="login(user)" class="auth-success" type="submit">
+          Sign In
+      </button>
+      <button mat-raised-button *ngIf="loading" class="auth-success">
+          Loading...
+      </button>
+        
+      <div class="auth-link">
+        Don't have an account? 
+        <a [routerLink]="['/signup']">Sign Up here</a>
+      </div>
+    </form>
+  </div>
+
+</div>

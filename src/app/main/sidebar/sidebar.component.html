@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="app-heading">
+    <span>CREDENTIALS APP</span>
+  </div>
+
+  
+    <mat-list>
+      <mat-list-item class="user">
+          <div class="user-details">
+            <img height="72" src="https://images.onlinelabels.com/images/clip-art/dagobert83/dagobert83_female_user_icon.png" class="img-circle" style="border: 1px solid rgb(238, 238, 238);">
+            <h4>{{name}}</h4>
+            <span class="help-block">{{email}}</span>
+          </div>
+          
+      </mat-list-item>
+      <mat-list-item class="user">
+          <div class="user-content"
+              fxLayout="row" 
+              fxLayout.xs="column" 
+              fxFlexFill >
+   
+            <div fxFlex="33" fxFlex.xs="55">
+              <h4>{{collectionCount + sharedCollectionCount}}</h4>
+              <span>All</span>
+            </div>
+            <div fxFlex="33" fxFlex.xs="55">
+                <h4>{{collectionCount}}</h4>
+                <span>My</span>
+            </div>
+            <div fxFlex="33" fxFlex.xs="55">
+                <h4>{{sharedCollectionCount}}</h4>
+                <span>Shared</span>
+            </div>
+          </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-divider></mat-divider>
+
+      <mat-list-item> 
+        All Collections
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-divider></mat-divider>
+      <mat-list-item style="cursor:pointer;" (click)="sharedCollections()">
+          Shared Collections
+      </mat-list-item>
+      <mat-divider></mat-divider><mat-divider></mat-divider>
+
+      <div *ngFor="let category of categoryLists">
+          <mat-list-item style="cursor:pointer;" (click)="collections(category)">
+              {{category}}
+            </mat-list-item>
+            <mat-divider></mat-divider><mat-divider></mat-divider>
+      </div>
+    </mat-list>
+    <!-- <button (click)="logout()" mat-stroked-button style="color: white; background: #5cb85c;border-color:#5cb85c;margin: 6% 0% 0% 31%;">
+        Logout
+    </button> -->
+    
+</div>

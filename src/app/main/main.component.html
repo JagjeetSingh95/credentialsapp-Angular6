@@ -1,0 +1,66 @@
+
+<div class="main-container" 
+       fxLayout="row" 
+       fxLayout.xs="column" 
+       fxFlexFill >
+       
+  <div fxFlex="25" fxFlex.xs="55">
+    <app-sidebar [collectionCount]="collectionCount" 
+                 [sharedCollectionCount]="sharedCollectionCount"
+                 [categoryLists]="categoryList"
+                 (collection)="getCollection($event)"
+                 (sharedCollection)="getSharedColllection()"
+        ></app-sidebar>
+  </div>
+
+  <div fxFlex="75" class="details" fxFlex.xs="15">
+    <div class="search-section">
+        <form [formGroup]="searchForm"> 
+
+        <mat-form-field class="search-bar">
+            <input matInput placeholder="Search..." [formControl]="searchForm.controls['search']">
+          </mat-form-field>
+          
+          <button mat-button class="mat-icon-button" (click)="search()">
+              <mat-icon>search
+                </mat-icon>
+          </button>
+          <button mat-button class="mat-icon-button" (click)="logout()">
+              <mat-icon>power_settings_new
+                </mat-icon>
+          </button>
+          </form>
+    </div>
+    <div class="main-container" 
+      fxLayout="row" 
+      fxLayout.xs="column" 
+      fxFlexFill >
+      
+      <div fxFlex="25" class="main-list" fxFlex.xs="55">
+        <app-credential-list [lists]="credentials" 
+                             (getCollection)="getCollection($event)"
+                             [categoryLists]="categoryList"
+                             (setId)="setIdEvent($event)"
+                             [loadingList]="loadingList">
+          </app-credential-list>
+        
+        <div *ngIf="!AddCollection && !loadingList" style="padding-top: 10%;text-align: center;">
+            <button mat-stroked-button (click)="AddCredential()" style="color: white; background: #5cb85c;border-color:#5cb85c;">
+                Add
+            </button>
+        </div>
+
+      </div>
+
+      <div fxFlex="75" fxFlex.xs="15">
+        <app-credential-detail [details]="details"
+                                [loadingDetail]="loadingDetail" 
+                                [AddCollection]="AddCollection"
+                                (clearCollection)="clearCollection($event)"
+                                >
+                              </app-credential-detail>
+      </div>
+    
+  </div>
+  </div>
+</div>

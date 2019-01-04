@@ -1,0 +1,1 @@
+export const commonUrl = 'https://credential-app.herokuapp.com/';

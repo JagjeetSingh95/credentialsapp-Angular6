@@ -1,0 +1,50 @@
+<div class="content" 
+       fxLayout="row" 
+       fxLayout.xs="column" 
+       fxFlexFill >
+       
+  <div fxFlex="65" fxFlex.xs="55">
+      <div class="bg-auth"></div>
+  </div>
+  
+  <div fxFlex="35" class="auth" fxFlex.xs="15">
+    <h2>Sign Up</h2>
+    <form [formGroup]="user">
+
+        <div class="auth-container">
+          <mat-form-field>
+            <input matInput placeholder="Name" [formControl]="user.controls['name']" />
+          </mat-form-field>
+          <small *ngIf="userForm && user.controls['name'].hasError('required')" class="text-danger support-text">You must enter a name.</small>
+         
+          <mat-form-field>
+            <input matInput placeholder="Email" type="email" [formControl]="user.controls['email']" />
+          </mat-form-field>
+          <small *ngIf="userForm && user.controls['email'].hasError('required')" class="text-danger support-text">You must include an email address.</small>
+          <small *ngIf="user.controls['email'].errors?.email && user.controls['email'].touched" class="text-danger support-text">You must include a valid email address.</small>
+
+          <mat-form-field>
+            <input matInput placeholder="Password" type="password" [formControl]="user.controls['password']" />
+          </mat-form-field>
+          <small *ngIf="userForm && user.controls['password'].hasError('required')" class="text-danger support-text">You must enter a password.</small>
+
+          <mat-form-field>
+            <input matInput placeholder="Confirm Password" (ngModelChange)="confirmPwd()" type="password" [formControl]="user.controls['confirmPassword']">
+          </mat-form-field>
+          <small *ngIf="userForm && user.controls['confirmPassword'].hasError('required')" class="text-danger support-text">You must include confirm password.</small>
+          <small *ngIf="confirmPwdEqual && user.controls['confirmPassword'].errors?.equalTo" class="text-danger support-text">Passwords do not match.</small>
+     
+        </div>
+
+        <div class="auth-link-right">
+          <a [routerLink]="['/signin']">Back to Sign In?</a>
+        </div>
+
+        <button mat-raised-button (click)="signup(user)" *ngIf="!loading" class="auth-success" type="submit">Sign Up</button>
+        <button mat-raised-button *ngIf="loading" class="auth-success">
+            Loading...
+        </button>
+      </form>
+  </div>
+
+</div>

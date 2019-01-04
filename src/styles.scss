@@ -1,0 +1,143 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.content {
+    .bg-auth {
+        height: 100vh;
+        margin: 0;
+        background: url(https://images.unsplash.com/photo-1501694159270-7b55f5eb85fc?ixlib=rb-0.3.5…EyMDd9&s=8b6de80…&auto=format&fit=crop&w=1534&q=80);
+        background-position: 100%;
+        background-size: cover;
+    }
+    .auth {
+        padding: 2%;
+        h2 {
+            margin-top: 15vh;
+        }
+        .auth-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .auth-container > * {
+          width: 100%;
+        }
+        button.auth-success {
+            color: #fff;
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+        }
+        .auth-link {
+            padding: 4% 2% 0 0;
+            a {
+                color: #337ab7;
+                cursor: pointer;
+                text-decoration: none;
+            }
+        }
+        .auth-link-right {
+            padding-bottom: 2%;
+            text-align: right;
+            a {
+                color: #337ab7;
+                cursor: pointer;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.container {
+    border-right: 1px solid #dddddd;
+    height: 100%;
+    .app-heading {
+        background-color: #fff;
+        text-align: center;
+        padding: 4% 0 4% 0;
+        border-bottom: 1px solid #ddd;
+    }
+    mat-list-item.user.mat-list-item {
+        height: auto;
+    }
+    .user-details {
+        padding: 5% 0 5% 0;
+        width: 100%;
+        text-align: center;
+    }
+    .user-content {
+        padding: 0 0 5% 0;
+        width: 100%;
+        text-align: center;
+    }
+}
+.main-container {
+    .search-section {
+        padding-top: 2%;
+        border-bottom: 1px solid #dddddd;
+        .search-bar {
+            width: 88%;
+            padding-left: 2%; 
+            padding-right: 2%; 
+        }
+    }
+    .mat-list-item-content {
+        padding: 0px 0px 0px 0px !important;
+    }
+    .main-list {
+        border-right: 1px solid #dddddd;
+        height: 100%;
+    }
+    .list-container {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #ddd;
+        padding-top: 10px;
+        cursor: pointer;
+        .list-heading {
+            padding-left: 5%;
+            width: 100%;
+            h4 { margin: 0 !important; }
+        }
+        .list-img {
+            padding-right: 5%;
+        }
+    }
+    .select-category {
+        width: 92%;
+        padding: 4% 0px 0px 4%;
+    }
+    .list-details {
+        padding-left: 8%;
+        padding-right: 8%;
+        p {
+            margin-top: 8%;
+            padding-bottom: 3%;
+            border-bottom: 1px solid #dddddd;
+        }
+        .detail-creadentail {
+            display: grid;
+            margin-top: 8%;
+        }
+    }
+    .action-bar {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #dddddd;
+        .action-detail {
+            padding: 1% 0 1% 6%;
+            width: 100%;
+        }
+        .action-icons {
+            padding-right: 7%;
+            padding-top: 2%;
+            width: 30%;
+            mat-icon {
+                cursor: pointer;
+            }
+        }
+    }
+}
